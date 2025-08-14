@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+        }
+        input {
+            padding: 8px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    
+        <form action="#" method="post">
+            <label for="Nome">Nome:</label>
+            <input type="text" name="nome" placeholder="Digite seu nome">
+
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" placeholder="Digite seu e-mail">
+
+            <label for="date">Data:</label>
+            <input type="date" name="data">
+
+            <label for="hora">hora</label>
+            <input type="time" name="hora">
+
+            <select name="Estado" id="Estado">
+                <option value="">Selecione</option>
+                <option value="sp">SP</option>
+                <option value="rj">RJ</option>
+                <option value="mg">MG</option>
+            </select>
+            
+            <label for="arquivo">Arquivo</label>
+            <input type="file" name="arquivo">
+
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" placeholder="Digite a senha">
+            
+            <button id="Enviar">Enviar</button>
+            <button id="cancelar">Cancelar</button>
+
+            <label for="html">HTML</label>
+            <input type="checkbox" name="html" id="html">
+            <label for="css">CSS</label>
+            <input type="checkbox" name="css" id="css">
+
+            <label for="html">HTML</label>
+            <input type="radio" name="html" id="html">
+            <label for="css">CSS</label>
+            <input type="radio" name="css" id="css">
+
+        </form>
+   
+
+</body>
+</html>
