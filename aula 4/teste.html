@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UEFA Champions League — Fan Hub Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a1931; --bg-2:#0f274a; --bg-3:#081a35;
+      --text:#eef2f7; --muted:#a9b7d0; --brand:#d4af37; --card:#11254a; --line:#ffffff22;
+      --success:#22c55e; --danger:#ef4444; --warning:#f59e0b;
+      --shadow: 0 12px 28px rgba(0,0,0,.28);
+      --radius: 16px; --radius-lg: 22px; --container: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:'Outfit',system-ui,Segoe UI,Roboto,sans-serif;color:var(--text);
+      background: radial-gradient(1200px 500px at 50% -10%, #1c3e7a66, transparent 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg-3) 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .pill{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .7rem;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.1rem;border-radius:999px;font-weight:700;background:var(--brand);color:#0a0a0a;border:0;box-shadow:var(--shadow);cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--text);border:2px solid var(--brand)}
+    .chip{padding:.25rem .55rem;border:1px solid var(--line);border-radius:10px;font-size:.8rem;color:var(--muted)}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:#0a1931cc;backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:800}
+    .logo{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #fff, #b0c7ff 35%, #3656a5 60%, #0b1d3f);box-shadow:0 0 0 2px #ffffff33,inset 0 8px 16px #ffffff66}
+    nav ul{display:flex;gap:10px;list-style:none;margin:0;padding:0}
+    nav a{padding:.6rem .9rem;border-radius:999px;color:var(--muted)}
+    nav a:hover, nav a.active{background:#ffffff17;color:var(--text)}
+    .menu-btn{display:none;background:transparent;border:0;color:var(--text);font-size:1.4rem}
+
+    /* Toolbar */
+    .toolbar{display:flex;gap:10px;align-items:center}
+    .search{display:flex;align-items:center;gap:.5rem;background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:.5rem .75rem}
+    .search input{all:unset;color:var(--text)}
+    .toggle{display:inline-flex;align-items:center;gap:.5rem}
+
+    /* Hero */
+    .hero{position:relative}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:64px 0}
+    .hero h1{font-size:clamp(2rem,3.6vw,3.25rem);line-height:1.05;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:1.05rem}
+    .hero-card{background:linear-gradient(160deg,#132b57 0%,#0e203f 100%);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow)}
+    .stadium{border-radius:var(--radius-lg);aspect-ratio:16/10;background:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;border:1px solid var(--line)}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    h2{font-size:clamp(1.4rem,2.5vw,2rem);margin:0}
+
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card.small{grid-column:span 4}
+    .card.full{grid-column:1/-1}
+    .card h3{margin:0 0 10px}
+    .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.9rem}
+
+    /* News */
+    .news article{grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+
+    /* Table & Rankings */
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line)}
+    th{color:#cfe0ff;font-weight:700}
+    tbody tr:hover{background:#ffffff0a}
+    .club{display:flex;align-items:center;gap:10px}
+    .club img{width:24px;height:24px;border-radius:50%;object-fit:cover}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .gallery img{border-radius:14px;border:1px solid var(--line)}
+
+    /* Chat */
+    .chat{position:fixed;right:18px;bottom:18px;width:320px;max-width:calc(100vw - 36px);background:var(--bg-2);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .chat header{position:relative;background:transparent;border:0;backdrop-filter:none}
+    .chat-title{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--line)}
+    .chat-body{height:260px;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+    .msg{max-width:80%;padding:10px 12px;border-radius:14px;border:1px solid var(--line)}
+    .msg.user{align-self:flex-end;background:#193966}
+    .msg.bot{align-self:flex-start;background:#102a52}
+    .chat-input{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
+    .chat-input input{flex:1;all:unset;background:#0e2244;padding:.7rem .9rem;border-radius:999px}
+
+    /* Map */
+    .map{border-radius:18px;overflow:hidden;border:1px solid var(--line);height:360px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns:1fr}
+      .card,.news article{grid-column:1/-1}
+      .card.small{grid-column:1/-1}
+      nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      nav.open ul{display:flex;position:absolute;top:70px;right:10px;background:#0a1931e6;padding:12px;border:1px solid var(--line);border-radius:14px;flex-direction:column;width:min(86vw, 320px)}
+      .hero p{margin-bottom:8px}
+    }
+
+    /* Light mode */
+    body.light{--bg:#f5f7fb; --bg-2:#fff; --bg-3:#eef2f9; --text:#0e1726; --muted:#5a6b85; --card:#ffffff; --line:#0b1d3f22}
+    body.light header{background:#ffffffcc}
+    body.light .logo{box-shadow:0 0 0 2px #00000011,inset 0 8px 16px #ffffffaa}
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Champions Fan Hub+</span>
+      </div>
+      <nav id="nav">
+        <ul>
+          <li><a href="#home" class="active">Início</a></li>
+          <li><a href="#news">Notícias</a></li>
+          <li><a href="#table">Tabela</a></li>
+          <li><a href="#matches">Jogos</a></li>
+          <li><a href="#stats">Estatísticas</a></li>
+          <li><a href="#gallery">Galeria</a></li>
+          <li><a href="#clubs">Clubes</a></li>
+          <li><a href="#funfacts">Curiosidades</a></li>
+          <li><a href="#champions">Campeões</a></li>
+          <li><a href="#map">Mapa</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="toolbar">
+        <div class="search" role="search">
+          <span>🔎</span>
+          <input id="q" type="text" placeholder="Buscar clube ou jogador..." aria-label="Buscar" />
+        </div>
+        <label class="toggle pill" title="Alternar tema"><input id="themeToggle" type="checkbox"> 🌙/☀️</label>
+        <button class="menu-btn" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <div class="hero-badges" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:10px">
+          <span class="pill">Futebol Europeu</span>
+          <span class="pill">Temporada 2025/26 (exemplo)</span>
+          <span class="pill">Conteúdo de demonstração</span>
+        </div>
+        <h1>UEFA Champions League<br><span style="color:var(--brand)">Tudo em um só lugar</span></h1>
+        <p>Notícias, tabela, próximos jogos, artilharia, curiosidades e mais — com tema claro/escuro, busca e um chat de fãs para você brincar.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:12px">
+          <a class="btn" href="#matches">Ver próximos jogos</a>
+          <a class="btn ghost" href="#stats">Ver estatísticas</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="stadium" aria-label="Estádio iluminado"></div>
+        <div class="meta" style="justify-content:space-between;margin-top:12px">
+          <span><span class="chip">Atualização</span> Simulada</span>
+          <span><span class="chip">Idioma</span> PT-BR</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- News -->
+  <section id="news">
+    <div class="container">
+      <div class="section-head">
+        <h2>🗞️ Últimas notícias</h2>
+        <span class="pill">Feed editorial</span>
+      </div>
+      <div class="grid news" id="newsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Table (Groups) -->
+  <section id="table">
+    <div class="container">
+      <div class="section-head">
+        <h2>📊 Classificação — Fase de Grupos (exemplo)</h2>
+        <span class="pill">Dados estáticos</span>
+      </div>
+      <div class="grid" id="groupsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Matches -->
+  <section id="matches">
+    <div class="container">
+      <div class="section-head">
+        <h2>📅 Próximos jogos</h2>
+        <div style="display:flex;gap:8px;align-items:center">
+          <label class="pill" for="teamFilter">Filtrar por time</label>
+          <input id="teamFilter" type="text" placeholder="Digite o nome do time" style="padding:.6rem .8rem;border-radius:10px;border:1px solid var(--line);background:var(--bg-2);color:var(--text)" />
+        </div>
+      </div>
+      <div class="grid" id="matchesGrid"></div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section id="stats">
+    <div class="container">
+      <div class="section-head">
+        <h2>📈 Artilharia & Estatísticas</h2>
+        <span class="pill">Gols • Assistências • Finalizações</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Artilheiros (exemplo)</h3>
+          <table id="topScorers"><thead><tr><th>Jogador</th><th>Clube</th><th>Gols</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="card">
+          <h3>Maiores Assistentes</h3>
+          <table id="topAssists"><thead><tr><th>Jogador</th><th>Clube</th><th>Ast</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="card full">
+          <h3>Destaques da rodada</h3>
+          <ul id="highlights" style="margin:0;padding-left:18px"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <h2>🖼️ Galeria</h2>
+        <span class="pill">Imagens livres</span>
+      </div>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=1200&q=60" alt="Chute a gol"/>
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1200&q=60" alt="Torcida"/>
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=60" alt="Rede balançando"/>
+        <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1200&q=60" alt="Estádio noturno"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clubs -->
+  <section id="clubs">
+    <div class="container">
+      <div class="section-head">
+        <h2>🏟️ Clubes em destaque</h2>
+        <span class="pill">Histórico e curiosidades</span>
+      </div>
+      <div class="grid" id="clubsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Fun facts -->
+  <section id="funfacts">
+    <div class="container">
+      <div class="section-head">
+        <h2>✨ Curiosidades da Champions</h2>
+        <span class="pill">Para fãs</span>
+      </div>
+      <div class="grid">
+        <div class="card full" id="facts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Champions ranking -->
+  <section id="champions">
+    <div class="container">
+      <div class="section-head">
+        <h2>🏆 Ranking de Campeões (exemplo)</h2>
+        <span class="pill">Títulos por clube</span>
+      </div>
+      <div class="grid">
+        <div class="card full">
+          <table id="winners"><thead><tr><th>Clube</th><th>Títulos</th></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section id="map">
+    <div class="container">
+      <div class="section-head">
+        <h2>🗺️ Estádios icônicos</h2>
+        <span class="pill">Mapa interativo</span>
+      </div>
+      <div class="map">
+        <iframe title="Mapa Europa" src="https://www.openstreetmap.org/export/embed.html?bbox=-12.4%2C35.2%2C28.4%2C60.2&amp;layer=mapnik" style="border:0;width:100%;height:100%"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>✉️ Fale com a gente</h2>
+        <span class="pill">Sugestões e feedback</span>
+      </div>
+      <div class="grid">
+        <form class="card full" onsubmit="event.preventDefault(); alert('Mensagem enviada! (exemplo)'); this.reset();">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+            <label>Nome<br><input required type="text" placeholder="Seu nome" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg-2);color:var(--text)"></label>
+            <label>Email<br><input required type="email" placeholder="seu@email.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg-2);color:var(--text)"></label>
+          </div>
+          <label style="display:block;margin-top:12px">Mensagem<br>
+            <textarea required rows="5" placeholder="Sua mensagem" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg-2);color:var(--text)"></textarea>
+          </label>
+          <div style="margin-top:12px;display:flex;gap:10px"><button class="btn" type="submit">Enviar</button>
+            <a class="btn ghost" href="#home">Voltar ao topo</a></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--line);padding:30px 0;background:#081427">
+    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+      <p style="margin:0;color:var(--muted)">© 2025 Champions Fan Hub+ — Projeto de demonstração com HTML + CSS + JS.</p>
+      <div style="display:flex;gap:8px">
+        <a class="pill" href="#">Instagram</a>
+        <a class="pill" href="#">YouTube</a>
+        <a class="pill" href="#">X/Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat widget -->
+  <div class="chat" aria-live="polite">
+    <div class="chat-title"><strong>Chat dos Fãs</strong><button class="pill" onclick="document.querySelector('.chat').remove()">Fechar</button></div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input">
+      <input id="chatInput" type="text" placeholder="Digite sua mensagem..."/>
+      <button class="btn" onclick="sendMsg()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    // ======= THEME =======
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme==='light'){ document.body.classList.add('light'); themeToggle.checked=true }
+    themeToggle?.addEventListener('change',()=>{
+      document.body.classList.toggle('light');
+      localStorage.setItem('theme', document.body.classList.contains('light') ? 'light':'dark');
+    });
+
+    // ======= NAV =======
+    function toggleMenu(){ document.getElementById('nav').classList.toggle('open'); }
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click',()=>{
+        document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+      })
+    })
+
+    // ======= DATA (demo) =======
+    const clubs = [
+      { name:'Real Madrid', crest:'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg', country:'Espanha', titles:14, about:'Clube mais vencedor da competição.', stars:['Vini Jr.','Bellingham'] },
+      { name:'FC Bayern', crest:'https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_Munich_logo_%282017%29.svg', country:'Alemanha', titles:6, about:'Força alemã com tradição continental.', stars:['Kane','Musiala'] },
+      { name:'Manchester City', crest:'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg', country:'Inglaterra', titles:1, about:'Domínio recente no futebol inglês.', stars:['Haaland','De Bruyne'] },
+      { name:'FC Barcelona', crest:'https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg', country:'Espanha', titles:5, about:'Estilo de posse e grandes craques.', stars:['Lewandowski','Pedri'] },
+      { name:'Paris Saint-Germain', crest:'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg', country:'França', titles:0, about:'Projeto ambicioso em busca da primeira taça.', stars:['Mbappé (ex)','Dembélé'] },
+      { name:'AC Milan', crest:'https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg', country:'Itália', titles:7, about:'Tradição e história no torneio.', stars:['Leão','Pulisic'] },
+      { name:'Liverpool', crest:'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg', country:'Inglaterra', titles:6, about:'Anfield e noites europeias lendárias.', stars:['Salah','Szoboszlai'] },
+      { name:'Juventus', crest:'https://upload.wikimedia.org/wikipedia/commons/1/15/Juventus_FC_2017_logo.svg', country:'Itália', titles:2, about:'Velha Senhora do futebol italiano.', stars:['Vlahović','Chiesa'] },
+    ];
+
+    const groups = [
+      { name:'Grupo A', table:[
+        ['Real Madrid',10,4,3,1,0,'+6'],
+        ['PSG',8,4,2,2,0,'+3'],
+        ['AC Milan',4,4,1,1,2,'-2'],
+        ['Benfica',2,4,0,2,2,'-3']
+      ]},
+      { name:'Grupo B', table:[
+        ['Bayern',12,4,4,0,0,'+8'],
+        ['Arsenal',7,4,2,1,1,'+1'],
+        ['Inter',4,4,1,1,2,'-2'],
+        ['Porto',1,4,0,1,3,'-4']
+      ]}
+    ];
+
+    const matches = [
+      {date:'2025-09-14', time:'16:00', home:'Real Madrid', away:'Arsenal', venue:'Santiago Bernabéu', city:'Madrid'},
+      {date:'2025-09-14', time:'18:00', home:'Barcelona', away:'Bayern', venue:'Montjuïc', city:'Barcelona'},
+      {date:'2025-09-15', time:'15:45', home:'PSG', away:'Milan', venue:'Parc des Princes', city:'Paris'},
+      {date:'2025-09-15', time:'17:00', home:'Inter', away:'Porto', venue:'San Siro', city:'Milão'},
+      {date:'2025-09-16', time:'16:30', home:'Man City', away:'Liverpool', venue:'Etihad', city:'Manchester'}
+    ];
+
+    const news = [
+      {title:'Favoritos vencem e abrem vantagem', by:'Redação Fan Hub', text:'Vitórias importantes fora de casa consolidam liderança nos grupos.'},
+      {title:'Golaços e defesas salvadoras', by:'Estatísticas', text:'Índice de finalizações de fora da área aumentou 18% na rodada.'},
+      {title:'Jovens talentos em alta', by:'Scout', text:'Sub-21 ganha minutos e decide partidas com personalidade.'},
+      {title:'Técnicos ajustam pressão alta', by:'Tática', text:'Linhas compactas e transições rápidas dominam as partidas.'},
+    ];
+
+    const topScorers = [
+      {player:'Haaland', club:'Man City', goals:7},
+      {player:'Vini Jr.', club:'Real Madrid', goals:6},
+      {player:'Kane', club:'Bayern', goals:5},
+      {player:'Mbappé', club:'PSG', goals:5},
+    ];
+
+    const topAssists = [
+      {player:'De Bruyne', club:'Man City', ast:6},
+      {player:'Bellingham', club:'Real Madrid', ast:5},
+      {player:'Musiala', club:'Bayern', ast:4},
+      {player:'Saka', club:'Arsenal', ast:3},
+    ];
+
+    const highlights = [
+      'Pressão pós-perda decisiva nos primeiros 10 minutos.',
+      'Laterais com média de 2,1 passes-chave por jogo.',
+      'Eficácia nas bolas paradas subiu para 0,32 gols/jogo.'
+    ];
+
+    const winners = [
+      ['Real Madrid',14],['AC Milan',7],['Bayern',6],['Liverpool',6],['Barcelona',5],['Ajax',4],['Man United',3],['Inter',3],['Juventus',2],['Benfica',2]
+    ];
+
+    // ======= RENDER =======
+    // News
+    const newsGrid = document.getElementById('newsGrid');
+    news.forEach(n=>{
+      const el = document.createElement('article');
+      el.innerHTML = `<h3>${n.title}</h3><p class="meta">${n.by}</p><p>${n.text}</p>`;
+      newsGrid.appendChild(el);
+    });
+
+    // Groups
+    const crest = (name)=>{
+      const map = {
+        'Real Madrid':'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg',
+        'PSG':'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg',
+        'AC Milan':'https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg',
+        'Benfica':'https://upload.wikimedia.org/wikipedia/en/a/a2/SL_Benfica_logo.svg',
+        'Bayern':'https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_Munich_logo_%282017%29.svg',
+        'Arsenal':'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg',
+        'Inter':'https://upload.wikimedia.org/wikipedia/en/0/05/FC_Internazionale_Milano_2014.svg',
+        'Porto':'https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg'
+      };
+      return map[name]||'https://upload.wikimedia.org/wikipedia/commons/6/60/Solid_black.svg';
+    };
+
+    const groupsGrid = document.getElementById('groupsGrid');
+    groups.forEach(g=>{
+      const card = document.createElement('div');
+      card.className='card';
+      const rows = g.table.map(r=>`<tr>
+        <td class="club"><img alt="${r[0]}" src="${crest(r[0])}"/> ${r[0]}</td>
+        <td><strong>${r[1]}</strong></td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td><td>${r[6]}</td>
+      </tr>`).join('');
+      card.innerHTML = `<h3>${g.name}</h3>
+      <table aria-label="${g.name}"><thead><tr><th>Clube</th><th>PTS</th><th>J</th><th>V</th><th>E</th><th>D</th><th>SG</th></tr></thead><tbody>${rows}</tbody></table>`;
+      groupsGrid.appendChild(card);
+    });
+
+    // Matches
+    const matchesGrid = document.getElementById('matchesGrid');
+    function renderMatches(filter=''){
+      matchesGrid.innerHTML='';
+      const q = filter.trim().toLowerCase();
+      matches
+        .filter(m=>!q || m.home.toLowerCase().includes(q) || m.away.toLowerCase().includes(q))
+        .forEach(m=>{
+          const el=document.createElement('div');
+          el.className='card small';
+          el.innerHTML = `
+            <div class="meta" style="justify-content:space-between">
+              <span>📅 ${new Date(m.date).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})} • ${m.time}</span>
+              <span class="chip">${m.city}</span>
+            </div>
+            <h3 style="margin:10px 0">${m.home} <span style="color:var(--muted)">vs</span> ${m.away}</h3>
+            <div style="display:flex;gap:8px"><button class="btn">Detalhes</button><button class="btn ghost">Ingressos</button></div>`;
+          matchesGrid.appendChild(el);
+        });
+    }
+    renderMatches();
+    document.getElementById('teamFilter').addEventListener('input',(e)=>renderMatches(e.target.value));
+
+    // Stats
+    const tbodySc = document.querySelector('#topScorers tbody');
+    topScorers.forEach(s=>{ tbodySc.insertAdjacentHTML('beforeend', `<tr><td>${s.player}</td><td>${s.club}</td><td><strong>${s.goals}</strong></td></tr>`)});
+    const tbodyAs = document.querySelector('#topAssists tbody');
+    topAssists.forEach(s=>{ tbodyAs.insertAdjacentHTML('beforeend', `<tr><td>${s.player}</td><td>${s.club}</td><td><strong>${s.ast}</strong></td></tr>`)});
+    const hl = document.getElementById('highlights');
+    highlights.forEach(h=> hl.insertAdjacentHTML('beforeend', `<li>${h}</li>`));
+
+    // Clubs grid
+    const clubsGrid = document.getElementById('clubsGrid');
+    clubs.forEach(c=>{
+      const el=document.createElement('div');
+      el.className='card small';
+      el.innerHTML = `
+        <div class="meta" style="justify-content:space-between"><div class="club"><img src="${c.crest}" alt="${c.name}"/> ${c.name}</div><span class="chip">${c.country}</span></div>
+        <p>${c.about}</p>
+        <p><span class="chip">Títulos: ${c.titles}</span> <span class="chip">Estrelas: ${c.stars.join(', ')}</span></p>`;
+      clubsGrid.appendChild(el);
+    });
+
+    // Fun facts
+    const facts = document.getElementById('facts');
+    facts.innerHTML = `<ul style="margin:0;padding-left:18px">
+      <li>Competição começou como Taça dos Clubes Campeões Europeus (1955).</li>
+      <li>Formato atual com fase de grupos consolidou-se nos anos 90.</li>
+      <li>Noites europeias famosas por viradas épicas e atmosfera única.</li>
+    </ul>`;
+
+    // Winners
+    const winnersBody = document.querySelector('#winners tbody');
+    winners.forEach(w=> winnersBody.insertAdjacentHTML('beforeend', `<tr><td>${w[0]}</td><td><strong>${w[1]}</strong></td></tr>`));
+
+    // ======= SEARCH (clubs/players) =======
+    const q = document.getElementById('q');
+    q.addEventListener('input', () => {
+      const s = q.value.toLowerCase();
+      document.querySelectorAll('#clubsGrid .card').forEach(card=>{
+        card.style.display = card.textContent.toLowerCase().includes(s) ? '' : 'none';
+      });
+      // Destaque em artilharia
+      document.querySelectorAll('#topScorers tbody tr').forEach(tr=>{
+        const hit = tr.textContent.toLowerCase().includes(s);
+        tr.style.background = hit && s? '#ffffff15' : '';
+      });
+    });
+
+    // ======= CHAT (fake) =======
+    const chatBody = document.getElementById('chatBody');
+    const chatInput = document.getElementById('chatInput');
+    const botMsgs = [
+      'Bem-vindo ao Chat dos Fãs! Quem você acha que leva a taça?',
+      'Jogo duro hoje! Qual seu palpite?',
+      'Dica: use a busca lá em cima para achar seu clube favorito.'
+    ];
+    function pushMsg(text, who='bot'){
+      const div = document.createElement('div');
+      div.className = 'msg ' + (who==='user'?'user':'bot');
+      div.textContent = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    function sendMsg(){
+      const text = chatInput.value.trim();
+      if(!text) return;
+      pushMsg(text,'user');
+      chatInput.value='';
+      setTimeout(()=>{
+        const reply = botMsgs[Math.floor(Math.random()*botMsgs.length)];
+        pushMsg(reply,'bot');
+      }, 600);
+    }
+    // Mensagem inicial
+    setTimeout(()=>pushMsg('Olá! Este é um chat de demonstração. ⚽'), 600);
+
+  </script>
+</body>
+</html>
