@@ -1,0 +1,95 @@
+.palavra {
+    color: blue
+}
+
+#hello-world {
+    background-color: yellow
+}
+
+.subtitulo {
+    color: green;
+}
+
+.Item {
+    color: red;
+}
+
+#div-vermelha {
+    background-color:  red;
+    color: white;
+}
+
+#div-verde {
+    background-color: green;
+    color: whitesmoke;
+}
+
+p, h2, h3 {
+color: aqua;
+}
+
+.tres {
+    font-weight: bold;
+    color: black;
+}
+
+img {
+    border: 3px solid black; 
+    margin: 10px;
+}
+
+div p {
+    color: brown;
+}
+
+.class1 {
+    color: blue;
+}
+
+.class2 {
+    color: orange;
+}
+
+#div-nova {
+    font-family: Arial, sans-serif;
+}
+
+.número1 {
+    font-style: italic;
+    color: black;
+}
+
+.número2 {
+    font-weight: bold;
+    color: black;
+}
+
+.número3 {
+    text-decoration: underline;
+    color: black;
+}
+
+div h3 {
+    text-transform: uppercase;
+    color: black;
+}
+
+#div-1 {
+    color: red;
+}
+
+#div-2 {
+    color: green;
+}
+
+#div-3 {
+    color: blue;
+}
+
+.vermelho {
+    color: red;
+}
+
+.seg {
+    color: darkblue;
+}
