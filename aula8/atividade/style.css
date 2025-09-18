@@ -1,0 +1,121 @@
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 15px;
+    width: 30%; 
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    padding: 3px; 
+    text-align: left;
+}
+
+
+.tabela2 th {
+    background-color: gray;
+    color: white;
+}
+
+
+.tabela3 {
+    color: blue;
+}
+
+
+.tabela4 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.tabela5 th {
+    font-size: 1.2em;
+}
+
+
+.tabela6 td {
+    background-color: #f0f8ff;
+}
+
+
+.tabela7 th, .tabela7 td {
+    text-align: center;
+}
+
+
+.tabela8, .tabela8 th, .tabela8 td {
+    border: 2px solid black;
+}
+
+
+.tabela9 th {
+    color: red;
+}
+
+
+.tabela10 th, .tabela10 td {
+    padding: 15px; 
+    border: 1px solid black;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+
+.tabela11 td:first-child {
+    font-style: italic;
+}
+
+
+.tabela12 td {
+    font-weight: bold;
+}
+
+
+.tabela13 tr:first-child {
+    background-color: #d3d3d3;
+}
+
+
+.tabela14 td {
+    color: green;
+}
+
+
+.tabela15 {
+    font-family: "Verdana", sans-serif;
+    font-size: 1em;
+}
+
+
+.tabela16 tr:nth-child(2) {
+    background-color: #ffe4b5;
+}
+
+
+.tabela17 th {
+    background-color: #333;
+    color: #fff;
+}
+
+
+.tabela18 td {
+    text-transform: uppercase;
+}
+
+
+.tabela19 th {
+    font-family: "Courier New", Courier, monospace;
+}
+
+
+.tabela20 th {
+    background-color: #add8e6;
+    color: #000080;
+}
+.tabela20 td {
+    background-color: #f0f8ff;
+    color: #000080;
+}
+
