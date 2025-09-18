@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal de Notícias Exemplo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌐 Portal de Notícias</h1>
+  </header>
+
+  <main>
+
+    <!-- Notícia em float left -->
+    <section class="container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SENAI_S%C3%A3o_Paulo_logo.png" class="left">
+      <h2>Notícia em destaque à esquerda</h2>
+      <p>
+        Esta notícia está usando <strong>float: left</strong>.  
+        O texto flui ao lado da imagem azul, como um destaque típico de manchetes.
+      </p>
+    </section>
+
+    <!-- Notícia em float right -->
+    <section class="container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SENAI_S%C3%A3o_Paulo_logo.png" class="right">
+      <h2>Notícia em destaque à direita</h2>
+      <p>
+        Esta notícia está usando <strong>float: right</strong>.  
+        O texto flui ao lado da imagem vermelha, destacando a manchete do lado oposto.
+      </p>
+    </section>
+
+    <!-- Notícia em float none -->
+    <section class="container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SENAI_S%C3%A3o_Paulo_logo.png" class="none">
+      <h2>Notícia padrão</h2>
+      <p>
+        Esta notícia usa <strong>float: none</strong>.  
+        O texto sempre começa abaixo da imagem verde, ocupando toda a largura.
+      </p>
+    </section>
+
+    <!-- Notícia com inline-start em pt-BR -->
+    <section class="container" dir="ltr">
+      <div class="inline-start">📌</div>
+      <h2>Notícia em pt-BR usando inline-start</h2>
+      <p>
+        Este bloco usa <strong>float: inline-start</strong>.  
+        Em português, o ícone azul fica no início da linha (à esquerda), seguindo a leitura LTR.
+      </p>
+    </section>
+
+    <!-- Notícia com inline-end em árabe -->
+    <section class="container" dir="rtl">
+      <div class="inline-end">📌</div>
+      <h2>خبر باللغة العربية</h2>
+      <p>
+        هذه الأخبار تستخدم <strong>float: inline-end</strong>.  
+        في العربية، الرمز الأحمر يظهر في نهاية السطر (إلى اليسار) بسبب اتجاه القراءة RTL.
+      </p>
+    </section>
+
+    <!-- Notícia com clear -->
+    <section class="container clear-example">
+      <h2>Notícia com clear</h2>
+      <p>
+        Esta notícia usa <strong>clear: both</strong>.  
+        Isso garante que o bloco **sempre comece abaixo de todas as imagens flutuantes anteriores**, 
+        mesmo que elas sejam float left ou right.
+      </p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SENAI_S%C3%A3o_Paulo_logo.png" class="none">
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Portal de Notícias. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

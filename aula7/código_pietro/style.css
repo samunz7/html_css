@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+.container {
+  background-color: #fff;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.imagem {
+  float: left;            
+  margin-right: 15px;     
+  width: 150px;           
+  border-radius: 6px;     
+}
+
+.texto {
+  text-align: justify;
+  color: #333;
+}

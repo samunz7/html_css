@@ -1,0 +1,33 @@
+.contanier {
+  border: 2px solid;
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow: auto;
+}
+
+.left {
+  float: left;
+  margin: 5px 10px 5px 0;
+  width: 120px;
+  height: auto;
+}
+
+.right {
+  float: right;
+  margin: 5px 10px 5px 0;
+  width: 120px;
+  height: auto;
+}
+
+.none {
+  float: none;
+  display: block;
+  margin: 5px 0;
+  width: 120px;
+  height: auto;
+}
+
+p {
+  line-height: 1.5;
+  text-align: justify;
+}

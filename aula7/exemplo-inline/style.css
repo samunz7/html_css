@@ -1,0 +1,101 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  background: #222;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Containers de notícia */
+.container {
+  background: white;
+  padding: 15px;
+  margin: 15px auto;
+  border: 1px solid #ccc;
+  overflow: auto; /* mantém a altura do container */
+  max-width: 800px;
+}
+
+/* Float básico */
+.left {
+  float: left;
+  width: 150px;
+  height: auto;
+  margin: 5px 15px 5px 0;
+}
+
+.right {
+  float: right;
+  width: 150px;
+  height: auto;
+  margin: 5px 0 5px 15px;
+}
+
+.none {
+  float: none;
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 5px auto 10px auto;
+}
+
+/* Inline start / end */
+.inline-start {
+  float: inline-start;
+  background: #3498db;
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin: 5px 10px 5px 0;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+}
+
+.inline-end {
+  float: inline-end;
+  background: #e74c3c;
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin: 5px 0 5px 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+}
+
+/* Exemplo de clear */
+.clear-example {
+  clear: both; /* limpa todos os floats anteriores */
+}
+
+/* Cabeçalhos e parágrafos */
+h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+  text-align: justify;
+}
