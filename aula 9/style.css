@@ -1,8 +1,8 @@
 table {
     margin: auto;
     margin-bottom: 15px;
-    border-collapse: collapse;
     width: 30%;
+    border-collapse: collapse;
 }
 
 table, th, td {
