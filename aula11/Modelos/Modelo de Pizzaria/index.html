@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Modelo W3.CSS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(Imagens/pizza-de-pepperoni-1.webp);
+  min-height: 90%;
+}
+</style>
+</head>
+<body>
+
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="#" class="w3-bar-item w3-button">INÍCIO</a>
+    <a href="#menu" class="w3-bar-item w3-button">CARDÁPIO</a>
+    <a href="#about" class="w3-bar-item w3-button">SOBRE</a>
+    <a href="#myMap" class="w3-bar-item w3-button">CONTATO</a>
+  </div>
+</div>
+  
+
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-padding">
+    <span class="w3-tag w3-xlarge">Aberto das 8h às 1h</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white w3-hide-small" style="font-size:100px">PAPA´S<br>PIZZA</span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>PAPA´S<br>PIZZA</b></span>
+    <p><a href="#menu" class="w3-button w3-xxlarge w3-black">Ver o cardápio</a></p>
+  </div>
+</header>
+
+
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+  
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">O CARDÁPIO</h1>
+    <div class="w3-row w3-center w3-border w3-border-dark-grey">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Pizza');" id="myLink">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Pizza</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Massas</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Entradas</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Sobremesas</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">kids</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Bebidas</div>
+      </a>
+    </div>
+
+    <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
+      <h1><b>🍕Calabresa Tradicional</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 38,00</span></h1>
+      <p class="w3-text-grey">calabresa fatiada, cebola, mussarela, orégano e molho de tomate.</p>
+      <hr>
+   
+      <h1><b>🍅Marguerita</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 42,00</span></h1>
+      <p class="w3-text-grey">mussarela de búfala, tomate, manjericão fresco e azeite de oliva.</p>
+      <hr>
+      
+      <h1><b>🍗Frango com Catupiry</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 44,00</span></h1>
+      <p class="w3-text-grey">frango desfiado, catupiry, milho e orégano.</p>
+      <hr>
+
+      <h1><b>🧀Quatro Queijos</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 48,00</span></h1>
+      <p class="w3-text-grey">mussarela, provolone, gorgonzola e parmesão.</p>
+      <hr>
+
+      <h1><b>🌶️Mexicana Picante</b> <span class="w3-tag w3-red w3-round">Apimentada!</span><span class="w3-right w3-tag w3-dark-grey w3-round">R$ 46,00</span></h1>
+      <p class="w3-text-grey">carne moída, pimenta jalapeño, molho especial apimentado, mussarela e cebola roxa.</p>
+      <hr>
+
+      <h1><b>🥓Bacon com Mel e Alho Crocante</b> <span class="w3-tag w3-grey w3-round">Novo</span><span class="w3-right w3-tag w3-dark-grey w3-round">R$ 49,00</span></h1>
+      <p class="w3-text-grey">bacon crocante, mel artesanal, alho frito e mussarela.</p>
+    </div>
+
+    <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
+      <h1><b>🍞Massa Tradicional</b> <span class="w3-tag w3-grey w3-round">Popular</span> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 18,00</span></h1>
+      <p class="w3-text-grey">Levemente crocante por fora e macia por dentro.</p>
+      <hr>
+   
+      <h1><b>🌾Massa Integral</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 20,00</span></h1>
+      <p class="w3-text-grey">Feita com farinha integral 100%, mais leve e saudável.</p>
+      <hr>
+      
+      <h1><b>🧀Massa Recheada com Borda de Catupiry</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 24,00</span></h1>
+      <p class="w3-text-grey">Massa tradicional com borda cremosa de catupiry.</p>
+      <hr>
+
+      <h1><b>🌽Massa de Milho com Toque de Parmesão</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 22,00</span></h1>
+      <p class="w3-text-grey">Pão francês com creme de alho caseiro e toque de orégano.</p>
+    </div>
+
+
+    <div id="Starter" class="w3-container menu w3-padding-32 w3-white">
+      <h1><b>🧄Pão de Alho Tradicional</b> <span class="w3-tag w3-grey w3-round">Sazonal</span><span class="w3-right w3-tag w3-dark-grey w3-round">R$ 16,00</span></h1>
+      <p class="w3-text-grey">Pergunte ao garçom</p>
+      <hr>
+   
+      <h1><b>🧀Stick de Mussarela</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 22,00</span></h1>
+      <p class="w3-text-grey">Palitos empanados e crocantes com recheio de queijo mussarela derretido.</p>
+      <hr>
+      
+      <h1><b>🥗Mini Salada Caprese</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 18,00</span></h1>
+      <p class="w3-text-grey">Tomate-cereja, mussarela de búfala e manjericão com azeite de oliva.</p>
+      <hr>
+      
+      <h1><b>🍟Batata Rústica com Molho Especial</b> <span class="w3-right w3-tag w3-dark-grey w3-round">R$ 20,00</span></h1>
+      <p class="w3-text-grey">Batatas com casca, levemente temperadas, servidas com molho da casa.</p>
+    </div><br>
+
+  
+  </div>
+</div>
+
+
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Sobre</h1>
+    <p>A Pizzaria foi fundada em blabla por Sr. Italiano em lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p><strong>O Chef?</strong> O próprio Sr. Italiano <img src="Imagens/ChatGPT Image 9 de out. de 2025, 14_32_41.png" style="width:150px" class="w3-circle w3-right" alt="Chef"></p>
+    <p>Temos orgulho do nosso interior.</p>
+    <img src="Imagens/letreiro-metal-pizza-800x445.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurante">
+    <h1><b>Horário de Funcionamento</b></h1>
+    
+    <div class="w3-row">
+      <div class="w3-col s6">
+        <p>Segunda e Terça FECHADO</p>
+        <p>Quarta 10:00 - 00:00</p>
+        <p>Quinta 10:00 - 00:00</p>
+      </div>
+      <div class="w3-col s6">
+        <p>Sexta 10:00 - 00:00</p>
+        <p>Sábado 10:00 - 23:00</p>
+        <p>Domingo Fechado</p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<img src="Imagens/avenida-faria-lima.jpg" class="w3-image w3-greyscale" style="width:100%;" id="myMap">
+
+
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Contato</h1>
+    <p>Encontre-nos em na faria lima ou ligue para 11 93462-9964</p>
+    <p><span class="w3-tag">Atenção!</span> Oferecemos serviço completo de buffet para qualquer evento, grande ou pequeno. Entendemos suas necessidades e vamos adaptar a comida para satisfazer os maiores critérios de todos: aparência e sabor.</p>
+    <p class="w3-xxlarge"><strong>Reserve</strong> uma mesa, pergunte sobre o prato do dia ou envie-nos uma mensagem:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nome" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Número de pessoas" required name="People"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Data e hora" required name="date" value="2020-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Mensagem / Requisitos especiais" required name="Message"></p>
+      <p><button class="w3-button w3-light-grey w3-block" type="submit">ENVIAR MENSAGEM</button></p>
+    </form>
+  </div>
+</div>
+
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  
+</footer>
+
+<script>
+
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
