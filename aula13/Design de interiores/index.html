@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<title>Design de Interiores</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-row-padding .w3-light-grey img {
+  width: 100%;
+  height: 350px; /* altura fixa para todas */
+  object-fit: cover; /* corta e centraliza para manter proporção */
+}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- Barra lateral/menu -->
+<nav class="w3-sidebar w3-blue w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Fechar Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Design de<br>Interiores</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Início</a> 
+    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Galeria</a> 
+    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Serviços</a> 
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Colaboradores</a> 
+    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pacotes</a> 
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contato</a>
+  </div>
+</nav>
+
+<!-- Menu superior em telas pequenas -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Design de Interiores</span>
+</header>
+
+<!-- Efeito de sobreposição ao abrir a barra lateral em telas pequenas -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="fechar menu lateral" id="myOverlay"></div>
+
+<!-- !CONTEÚDO DA PÁGINA! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Cabeçalho -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Design de Interiores</b></h1>
+    <h1 class="w3-xxxlarge w3-text-blue"><b>Galeria.</b></h1>
+    <hr style="width:50px;border:5px solid rgb(0, 110, 255)" class="w3-round">
+  </div>
+  
+  <!-- Grade de fotos (modal) -->
+  <div class="w3-row-padding">
+    <div class="w3-half">
+      <img src="/aula 13/Design de interiores/Imagens/bcefcfbaba31e27ba6e96a5f7f40f048.jpg" style="width:100%" onclick="onClick(this)" alt="Concreto encontra tijolos">
+      <img src="/aula 13/Design de interiores/Imagens/c76282438eaf5f00e4de9a0f490dfb62.jpg" style="width:100%" onclick="onClick(this)" alt="Design escandinavo claro, branco e compacto">
+      <img src="/aula 13/Design de interiores/Imagens/sala-de-estar-de-luxo-loft-de-renderizacao-3d-com-lustre-de-design_105762-2226.jpg" style="width:100%" onclick="onClick(this)" alt="Paredes brancas com cadeiras de designer">
+    </div>
+
+    <div class="w3-half">
+      <img src="/aula 13/Design de interiores/Imagens/Sao-Luis-Stephanie-Tarraf-3-1-1.webp" style="width:100%" onclick="onClick(this)" altwidth:100%" onclick="onClick(this)"alt="Janelas para o átrio">
+      <img src="/aula 13/Design de interiores/Imagens/design-de-interiores-apartamento-75-metros-limeira-3.jpg" style="width:100%" onclick="onClick(this)" alt="Quarto e escritório em um único espaço">
+      <img src="/aula 13/Design de interiores/Imagens/desing-de-interiores.jpg" style="width:100%" onclick="onClick(this)" alt="Design escandinavo">
+    </div>
+  </div>
+
+  <!-- Modal para imagens em tamanho completo ao clicar -->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Serviços -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue"><b>Serviços.</b></h1>
+    <hr style="width:50px;border:5px solid rgb(0, 110, 255)" class="w3-round">
+    <p>Somos um serviço de design de interiores que foca no que é melhor para sua casa e no que é melhor para você!</p>
+    <p>Somos especializados em criar ambientes únicos e personalizados que refletem o seu estilo e atendem às suas necessidades. Nossa equipe trabalha com dedicação e criatividade para transformar espaços comuns em lugares extraordinários, unindo funcionalidade e estética em cada detalhe. Oferecemos uma consultoria completa, acompanhando todas as etapas do projeto — desde o planejamento inicial até a execução final, para garantir que cada ambiente seja harmonioso, confortável e visualmente encantador. Nosso compromisso é transformar a sua casa em um espaço que traduza sua personalidade, valorizando o bem-estar e o prazer de estar em um lugar verdadeiramente seu.
+    </p>
+  </div>
+  
+  <!-- Designers -->
+  <div class="w3-container" id="designers" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue sexo"><b>Designers.</b></h1>
+    <hr style="width:50px;border:5px solid rgb(0, 110, 255)" class="w3-round">
+    <p>A melhor equipe do mundo.</p>
+    <p>Nossa equipe reúne profissionais experientes e dedicados, apaixonados pelo universo do design. Cada integrante contribui com uma visão própria e competências especializadas, assegurando que cada projeto seja de excelência. Atuamos de maneira colaborativa, unindo criatividade e know-how técnico para entregar resultados que superem as expectativas. Nosso trabalho é totalmente personalizado, com foco em compreender profundamente as necessidades e desejos de cada cliente.
+    </p>
+    <p><b>Nossos designers são cuidadosamente selecionados</b>:</p>
+  </div>
+
+  <!-- A Equipe -->
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/aula 13/Design de interiores/Imagens/WhatsApp Image 2025-10-30 at 14.02.40.jpeg" alt="João" style="width:100%">
+        <div class="w3-container">
+          <h3>Samuel Pedroso</h3>
+          <p class="w3-opacity">CEO & Fundador</p>
+          <p>Especialista em criar ambientes que contam histórias. Sua visão estratégica transforma ideias em realidade.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/aula 13/Design de interiores/Imagens/2197899.webp" alt="Maria" style="width:100%">
+        <div class="w3-container">
+          <h3>Pietra Leite</h3>
+          <p class="w3-opacity">Designer</p>
+          <p>Apaixonada por detalhes e texturas. Cria composições harmoniosas que encantam e inspiram.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/aula 13/Design de interiores/Imagens/WhatsApp Image 2025-10-30 at 14.00.21.jpeg" alt="Miguel" style="width:100%">
+        <div class="w3-container">
+          <h3>Guilherme Marcelino</h3>
+          <p class="w3-opacity">Arquiteto</p>
+          <p>Une criatividade e praticidade de forma impecável, tornando cada projeto um exemplo de inovação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pacotes / Tabelas de Preços -->
+  <div class="w3-container" id="packages" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue"><b>Pacotes.</b></h1>
+    <hr style="width:50px;border:5px solid rgb(0, 110, 255)" class="w3-round">
+    <p>Informações sobre nossos preços. Oferecemos pacotes flexíveis que se adaptam ao seu orçamento e necessidades. Cada pacote é projetado para fornecer o máximo valor, com serviços que vão desde o planejamento básico até soluções completas e personalizadas. Entre em contato para discutirmos qual opção melhor atende ao seu projeto.</p>
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-half w3-margin-bottom">
+      <ul class="w3-ul w3-light-grey w3-center">
+        <li class="w3-dark-grey w3-xlarge w3-padding-32">Básico</li>
+        <li class="w3-padding-16">Planejamento de espaço</li>
+        <li class="w3-padding-16">10 horas de suporte</li>
+        <li class="w3-padding-16">Fotografia</li>
+        <li class="w3-padding-16">20% desconto em móveis</li>
+        <li class="w3-padding-16">Boas ofertas</li>
+        <li class="w3-padding-16">
+          <h2>R$ 2.299</h2>
+          <span class="w3-opacity">Por cômodo</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-white w3-padding-large w3-hover-black">Assinar</button>
+        </li>
+      </ul>
+    </div>
+        
+    <div class="w3-half">
+      <ul class="w3-ul w3-light-grey w3-center">
+        <li class="w3-blue w3-xlarge w3-padding-32">Profissional</li>
+        <li class="w3-padding-16">Planejamento de espaço</li>
+        <li class="w3-padding-16">50 horas de suporte</li>
+        <li class="w3-padding-16">Fotografia</li>
+        <li class="w3-padding-16">50% desconto em móveis</li>
+        <li class="w3-padding-16">ÓTIMAS ofertas</li>
+        <li class="w3-padding-16">
+          <h2>R$ 2.779</h2>
+          <span class="w3-opacity">Por cômodo</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-blue w3-padding-large w3-hover-black">Assinar</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Contato -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue"><b>Contato.</b></h1>
+    <hr style="width:50px;border:5px solid rgb(0, 110, 255)" class="w3-round">
+    <p>Quer que estilizemos sua casa? Preencha o formulário e nos conte os detalhes :) Adoramos conhecer novas pessoas e futuros clientes!</p>
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Nome</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Mensagem</label>
+        <input class="w3-input w3-border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-blue w3-margin-bottom">Enviar Mensagem</button>
+    </form>  
+  </div>
+
+<!-- Fim do conteúdo da página -->
+</div>
+
+<!-- Container W3.CSS -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Desenvolvido por <a href="https://github.com/guiisantos02" title="W3.CSS" target="_blank" class="w3-hover-opacity">Guilherme Santos</a></p></div>
+
+<script>
+// Script para abrir e fechar a barra lateral
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Galeria de Imagens Modal
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>

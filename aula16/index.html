@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Instituto NexusTech</h1>
+        <h3>NexusTech — Conectando hoje, transformando o amanhã.</h3>
+    </header>
+
+    <nav>
+        <a href="sobre">Sobre</a>
+        <a href="projeto">Projetos</a>
+        <a href="equipe">Equipe</a>
+        <a href="doe">Doação</a>
+    </nav>
+
+    <section id="quem-somos">
+        <h2>Quem somos</h2>
+        <p>
+            O Instituto NexusTech é uma ONG dedicada a transformar vidas por meio da tecnologia. 
+        Nosso propósito é oferecer conhecimento acessível, projetos inovadores e oportunidades 
+        reais para jovens e adultos que desejam ingressar no mundo digital e construir um futuro melhor.
+    </p>
+
+    <h3>Nossos valores</h3>
+    <ul>
+        <li>Inovação</li>
+        <li>Responsabilidade Social</li>
+        <li>Sustentabilidade</li>
+    </ul>
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do projeto</th>
+                    <th>Público Atendido</th>
+                    <th>Ano de Início</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td style="padding: 10px;">Conectar para Transformar</td>
+                <td style="padding: 10px;">Jovens de 12 a 18 anos</td>
+                <td style="padding: 10px;">2021</td>
+                <td style="padding: 10px;">Ativo</td>
+            </tr>
+
+            <tr>
+                <td style="padding: 10px;">TechEduca</td>
+                <td style="padding: 10px;">Adultos iniciantes na tecnologia</td>
+                <td style="padding: 10px;">2020</td>
+                <td style="padding: 10px;">Concluído</td>
+            </tr>
+
+            <tr>
+                <td style="padding: 10px;">Futuro Digital</td>
+                <td style="padding: 10px;">Comunidades de baixa renda</td>
+                <td style="padding: 10px;">2023</td>
+                <td style="padding: 10px;">Ativo</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="equipe">
+        <h2>Equipe</h2>
+
+        <div class="membros">
+
+            <div class="card">
+            <img src="/aula16/imagem/foto_perfil_profissional_medico_consultorio_hospital_albert_einstein-1.jpg" alt="foto do membro">
+            <h3>Maria Silva</h3>
+            <p>Coordenadora de projetos</p>
+            </div>
+
+            <div class="card">
+            <img src="/aula16/imagem/db-34.jpg" alt="foto do membro">
+            <h3>Guilherme Santos</h3>
+            <p>Instrutor de tecnologia</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="doacao">
+    <h2>Doe Agora</h2>
+
+    <form class="form-doacao">
+        
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome completo" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+
+        <label for="valor">Valor da doação (R$)</label>
+        <input type="number" id="valor" placeholder="Ex: 50.00" required>
+
+        <label for="pagamento">Método de pagamento</label>
+        <select id="pagamento" required>
+            <option value="">Selecione</option>
+            <option value="pix">Pix</option>
+            <option value="cartao">Cartão</option>
+            <option value="boleto">Boleto</option>
+        </select>
+
+        <button type="submit">Enviar Doação</button>
+
+    </form>
+</section>
+
+<footer id="rodape">
+    <p><strong>Endereço:</strong> Pinheiros/SP, 123</p>
+    <p><strong>E-mail:</strong> contato@nexustech.org</p>
+    <p>© 2025 ONG Instituto NexusTech — Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

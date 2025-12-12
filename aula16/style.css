@@ -1,0 +1,284 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+header {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+header h3 {
+    font-size: 18px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+
+nav {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #00aaff;
+    text-shadow: 0px 0px 4px #00aaff;
+}
+
+/* ======== SEÇÃO QUEM SOMOS ======== */
+section#quem-somos {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+section#quem-somos h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #111;
+    text-align: center;
+}
+
+section#quem-somos p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: justify;
+    color: #333;
+}
+
+section#quem-somos h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+section#quem-somos ul {
+    list-style: inside square;
+    padding-left: 10px;
+}
+
+section#quem-somos li {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* ======== SEÇÃO PROJETOS ======== */
+section#projetos {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+section#projetos h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #111;
+    text-align: center;
+}
+
+/* ======== TABELA ======== */
+#projetos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#projetos th {
+    background: #222;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 18px;
+}
+
+#projetos td {
+    padding: 10px;
+    font-size: 17px;
+    color: #333;
+}
+
+/* Linhas alternadas */
+#projetos tbody tr:nth-child(odd) {
+    background: #f0f0f0;
+}
+
+/* Hover na linha */
+#projetos tbody tr:hover {
+    background: #e3e3e3;
+    transition: 0.2s;
+}
+
+/* ======== SEÇÃO EQUIPE ======== */
+section#equipe {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+section#equipe h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+/* ======== LISTA DE MEMBROS ======== */
+#membros,
+section#equipe .membros {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* ======== CARD DO MEMBRO ======== */
+section#equipe .card {
+    background: white;
+    width: 220px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* Hover para dar destaque */
+section#equipe .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ======== IMAGEM ======== */
+section#equipe .card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #222;
+}
+
+/* ======== NOME E FUNÇÃO ======== */
+section#equipe .card h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+section#equipe .card p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* ======== SEÇÃO DOE AGORA ======== */
+section#doacao {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+section#doacao h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+/* ======== FORMULÁRIO ======== */
+.form-doacao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-doacao label {
+    font-size: 18px;
+    color: #222;
+}
+
+.form-doacao input,
+.form-doacao select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.2s;
+    background: white;
+}
+
+/* Foco suave */
+.form-doacao input:focus,
+.form-doacao select:focus {
+    border-color: #000;
+}
+
+/* ======== BOTÃO ======== */
+.form-doacao button {
+    margin-top: 10px;
+    padding: 14px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-doacao button:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+/* ======== RODAPÉ ======== */
+footer#rodape {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 50px;
+}
+
+footer#rodape p {
+    margin: 6px 0;
+    font-size: 16px;
+}
+
+footer#rodape strong {
+    color: #00aaff;
+}
